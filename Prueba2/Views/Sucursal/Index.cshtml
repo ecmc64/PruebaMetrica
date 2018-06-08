@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Prueba2.Models.Sucursal>
+
+@{
+    ViewData["Title"] = "Sucursales";
+}
+
+<h2>Sucursales</h2>
+
+<p>
+    <a asp-action="Create">Crear nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SucursalId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Direccion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaRegistro)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SucursalId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRegistro)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SucursalId"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a> |
+                <a asp-action="Details" asp-route-id="@item.SucursalId"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a> |
+                <a asp-action="Delete" asp-route-id="@item.SucursalId"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,54 @@
+﻿@model Prueba2.Models.OrdenPago
+
+@{
+    ViewData["Title"] = "Detalle";
+}
+
+<h2>Detalle de Pago</h2>
+
+<div>
+    <h4>OrdenPago</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrdenPagoId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrdenPagoId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Monto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Monto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MonedaId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MonedaPago.NombreMoneda)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EstadoPago.NombreEstado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SucursalId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SucursalPago.Nombre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaPago)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaPago)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Modificar", "Edit", new { id = Model.OrdenPagoId  }) |
+    <a asp-action="Index">Regresar a Lista</a>
+</div>

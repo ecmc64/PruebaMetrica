@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Prueba2.Models.OrdenPago>
+
+@{
+    ViewData["Title"] = "Orden de Pago";
+}
+
+<h2>Orden de Pago</h2>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrdenPagoId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Monto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MonedaId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EstadoId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SucursalId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaPago)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrdenPagoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Monto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonedaPago.NombreMoneda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoPago.NombreEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SucursalPago.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaPago)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.OrdenPagoId"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a> |
+                <a asp-action="Details" asp-route-id="@item.OrdenPagoId"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a> |
+                <a asp-action="Delete" asp-route-id="@item.OrdenPagoId"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
