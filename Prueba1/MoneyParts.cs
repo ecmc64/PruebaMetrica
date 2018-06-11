@@ -9,14 +9,17 @@ namespace Prueba1
     public class MoneyParts
     {
         readonly List<decimal> _monedas = new List<decimal>() { 0.05m, 0.1m, 0.2m, 0.5m, 1m, 2m, 5m, 10m, 20m, 50m, 100, 200m };
+        private static List<string> _combinaciones;
 
-        public void Build(string input)
+        public List<string> Build(string input)
         {
             var suma = Convert.ToDecimal(input);
-
+            _combinaciones = new List<string>();
             var lista = new List<string>();
 
             Contar(_monedas, suma, new List<decimal>(), lista);
+
+            return _combinaciones;
         }
 
         private static void Contar(List<decimal> pListaMonedas, decimal suma, List<decimal> parcial, List<string> lst)
@@ -28,7 +31,7 @@ namespace Prueba1
                 var final = parcial.OrderBy(x => x).ToArray();
                 if (lst.IndexOf(string.Join(",", final)) == -1)
                 {
-                    Console.WriteLine("[" + string.Join(",", final) + "]");
+                    _combinaciones.Add("[" + string.Join(",", final) + "]");
                     lst.Add(string.Join(",", final));
                 }
             }

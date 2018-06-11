@@ -52,7 +52,13 @@ namespace Prueba1
                     Console.WriteLine("3:  MoneyPart");
                     Console.Write("Input: ");
                     MoneyParts money = new MoneyParts();
-                    money.Build(Console.ReadLine());
+                    var combinaciones = money.Build(Console.ReadLine());
+                    combinaciones.ForEach((x) =>
+                    {
+                        Console.WriteLine(x);
+                    });
+                    
+                    Console.ReadLine();
                     break;
 
             }

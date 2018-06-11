@@ -25,5 +25,12 @@ namespace PruebaUnitaria
             Assert.AreEqual("[4,6,8][5,7,9]", resultado);
         }
 
+        [TestMethod]
+        public void PruebaMoneyParts()
+        {
+            var obj = new Prueba1.MoneyParts();
+            var listaResultado = obj.Build("0.5");
+            Assert.AreEqual(listaResultado.Count, 13);
+        }
     }
 }
